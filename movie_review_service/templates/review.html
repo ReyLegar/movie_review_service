@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .btn {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Review list</h1>
+    <table>
+      <tr>
+        <th>Review</th>
+        <th>Reting</th>
+        <th>Emotion</th>
+      </tr>
+      {% for review in reviews %}
+        <tr>
+          <td>{{ review.text }}</td>
+          <td>{{ review.rating }}</td>
+          <td>{{ review.emotion }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <button class="btn" onclick="window.location.href='{% url 'input_page' %}'">Add review</button>
+    <script>
+      const rows = document.querySelectorAll('tr');
+      for (let i = 0; i < rows.length; i++) {
+        rows[i].addEventListener('mouseover', function() {
+          this.classList.add('highlight');
+        });
+        rows[i].addEventListener('mouseout', function() {
+          this.classList.remove('highlight');
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		button {
+			padding: 10px 20px;
+			background-color: #008CBA;
+			color: white;
+			border-radius: 5px;
+			font-size: 18px;
+			font-weight: bold;
+			margin: 10px 0;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #005F6B;
+		}
+	</style>
+</head>
+<body>
+	<div class="buttons">
+		<button id="write_review">Написать отзыв</button>
+		<button id="see_review">Просмотр отзывов</button>
+	</div>
+
+    <script>
+		var button1 = document.getElementById("write_review");
+		var button2 = document.getElementById("see_review");
+		button1.addEventListener("click", function() {
+			window.location.href = "{% url 'input_page' %}";
+		});
+		button2.addEventListener("click", function() {
+			window.location.href = "{% url 'reviews' %}";
+		});
+	</script>
+</body>
+</html>
