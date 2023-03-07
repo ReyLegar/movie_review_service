@@ -6,11 +6,15 @@
         border-collapse: collapse;
         width: 100%;
         margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+
       }
 
       th, td {
         text-align: left;
         padding: 8px;
+        font-family: Verdana, sans-serif;
+
       }
 
       th {
@@ -23,20 +27,25 @@
       }
 
       .btn {
-        display: block;
-        margin: 0 auto;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 16px;
         cursor: pointer;
+        position: fixed;
+        bottom: 20px;
+        right: 50%;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transform: translate(50%, 0);
       }
     </style>
   </head>
   <body>
-    <h1>Review list</h1>
+    <h1 style="text-align: center; font-size: 3rem; color: #333; font-family: Arial, sans-serif; font-weight: bold;">Review list</h1>
     <table>
       <tr>
         <th>Review</th>
@@ -45,7 +54,7 @@
       </tr>
       {% for review in reviews %}
         <tr>
-          <td>{{ review.text }}</td>
+          <td>{{ review.text|safe }}</td>
           <td>{{ review.rating }}</td>
           <td>{{ review.emotion }}</td>
         </tr>
